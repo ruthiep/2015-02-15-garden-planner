@@ -1,0 +1,22 @@
+<h2>Here are all the plants in our database.</h2>
+<table>
+  <tr>
+    <th>ID Number</th>
+    <th>Plant</th>
+    <th>Preferred Sun</th>
+    <th>More info</th>
+    <th>See it here</th>
+    <th>Category</th>
+  </tr>
+  <% @plant.each do |p| %>
+<tr>
+ <td> <%= p.id %> </td> 
+ <td><%= p.name %> </td>
+ <td> <%=p.sun %> </td>
+ <td><%= p.more_info %> </td>
+ <td> <%=p.picture%> </td>
+ <td> <%= p.category_id %> </td> 
+</tr> <br>
+<% end %>
+
+</table>
