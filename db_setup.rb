@@ -12,18 +12,17 @@ DATABASE.execute("CREATE TABLE IF NOT EXISTS comments (id INTEGER PRIMARY KEY,
 DATABASE.execute("CREATE TABLE IF NOT EXISTS gardens (id INTEGER PRIMARY KEY,
                  name TEXT NOT NULL)")
 
-DATABASE.execute("CREATE TABLE IF NOT EXISTS selections (id INTEGER PRIMARY KEY,
-                  plant_id INTEGER, garden_id INTEGER,
-                  FOREIGN KEY(plant_id) REFERENCES plants(id),
-                  FOREIGN KEY(garden_id) REFERENCES gardens(id))")
+DATABASE.execute("CREATE TABLE IF NOT EXISTS selections (plant_id INTEGER NOT NULL, 
+                  garden_id INTEGER NOT NULL,
+                  PRIMARY KEY (plant_id, garden_id),
+                  FOREIGN KEY (plant_id) REFERENCES plants(id),
+                  FOREIGN KEY (garden_id) REFERENCES gardens(id))")
 
-DATABASE.execute("CREATE TABLE IF NOT EXISTS special_notes (id INTEGER PRIMARY KEY,
-                  plant_id INTEGER, comment_id INTEGER,
+DATABASE.execute("CREATE TABLE IF NOT EXISTS special_notes (plant_id INTEGER NOT NULL,
+                  comment_id INTEGER NOT NULL,
+                  PRIMARY KEY (plant_id, comment_id),
                   FOREIGN KEY(plant_id) REFERENCES plants(id),
                   FOREIGN KEY(comment_id) REFERENCES comments(id))")
-
-DATABASE.execute("CREATE TABLE IF NOT EXISTS search (id INTEGER PRIMARY KEY,
-                  name TEXT NOT NULL)")
 
 
 if DATABASE.execute("SELECT * FROM categories") == []
@@ -40,9 +39,15 @@ if DATABASE.execute("SELECT * FROM plants") == []
     ('Creeping Phlox', 'Full Sun', 'link', 'picture', 1),
     ('Thyme', 'Full Sun', 'link', 'picture', 1),
     ('Angelina Sedum', 'Full Sun', 'link', 'picture', 1),
-    ('Cornflower', 'Full Sun', 'link', 'picture', 4)")
-    
+    ('Cornflower', 'Full Sun', 'link', 'picture', 4)
+    ('Arctic Fire', 'Full Sun-Part Shade', 'link', 'picture', 2),
+    ('Ruby Glow Sedum', 'Full Sun-Part Shade', 'link', 'picture', 2),
+    ('Mexican Blue Sage', 'Full Sun', 'link', 'picture', 2),
+    ('Coneflower', 'Full Sun', 'link', 'picture', 3),
+    ('Cupplant', 'Full Sun', 'linl', 'picture', 3),
+    ('Meadow Sage salvia', 'Full Sun', 'link', 'picture', 3)")
  end
+
     # "en.wikipedia.org/wiki/Digitalis",
  #    "http://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Digitalis_purpurea2.jpg/220px-Digitalis_purpurea2.jpg",
  #    4)")

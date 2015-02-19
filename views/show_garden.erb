@@ -1,0 +1,20 @@
+<h2>Here are all the gardens in our database.</h2>
+<table>
+  <tr>
+    <th>ID Number</th>
+    <th>Garden Name</th>
+  </tr>
+  <% @garden.each do |g| %>
+<tr>
+ <td> <%= g.id %> </td> 
+ <td><%= g.name %> </td>
+</tr> <br>
+<% end %>
+
+</table>
+
+<h2>Please select the garden Id you wish to view</h2>
+<form action="select">
+  <input type ="text" name="id" value="Example: 1">
+  <input type="submit" value="Click here">
+</form>

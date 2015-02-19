@@ -152,6 +152,27 @@ module ClassMethods
   # def delete_record(table, id_to_remove)
 #     DATABASE.execute("DELETE FROM #{products} WHERE id = #{id_to_remove}")
 #   end
+
+def insert(table) 
+  attributes = []
+  values = []
+  instance_variables.each do |i|
+  
+    attributes << i.to_s.delete("@") if i != :@id
+  end
+
+  attributes.each do |a|
+    value = self.send(a)
+
+    if value.is_a?(Integer)
+      values << "#{value}"
+    else values << "'#{value}'"
+    end
+  end
+  DATABASE.execute("INSERT INTO #{table} (#{attributes.join(", ")})
+                                      VALUES (#{values.join(", ")})")
+  @id = DATABASE.last_insert_row_id  
+end
   
   def delete_record(table, id)
     DATABASE.execute("DELETE FROM #{table} WHERE id = #{id}")
