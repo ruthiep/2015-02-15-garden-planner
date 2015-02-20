@@ -1,8 +1,12 @@
-<h2>Congrats! You have added "<%= params["plant_id"] %>" to your garden! </h2>
+<h2>Congrats! You have added "<%= @plant.name %>" to your garden! </h2>
 
-Your garden "<%= params["garden_id"] %>"  now contains:
+Your garden "<%= @garden.name %>"  now contains:
 
-list plants in garden
+<ul>
+<% @garden_list.each do |g| %>
+<li><%= g["plant_name"] %></li>
+<% end %>
+</ul>
 
 to add more plants click here:  
 
@@ -11,4 +15,3 @@ to add more plants click here:
   <input type = "hidden" name="garden_id" value ="<%= params["garden_id"] %>">
   <input type = "submit" value = "Go">
 </form>
-

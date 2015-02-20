@@ -182,15 +182,11 @@ module ClassMethods
     search_results
   end
   
-  def join_search
-  search results = [] 
-  results = DATABASE.execute("SELECT gardens.name, plants.name FROM selections 
+  def join_search(garden_id)
+   results = DATABASE.execute("SELECT gardens.name AS garden_name, plants.name AS plant_name FROM selections 
     LEFT JOIN gardens ON selections.garden_id = gardens.id 
-    LEFT JOIN plants ON selections.plant_id = plants.id;")
-  results.each do |r|
-    search_results << self.new(r) if r != nil
-  end
-  search_results  
+    LEFT JOIN plants ON selections.plant_id = plants.id WHERE selections.garden_id = #{garden_id}")
+  
   end
   
   # Public: .find

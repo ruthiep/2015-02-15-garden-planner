@@ -41,7 +41,9 @@ get "/show_show_garden" do
 end
 
 get "/show_select_garden" do
-  @results = Selection.search_where(params["table"], params["search_for"], params["user_search"])  
+  # @results works, I'd like it to be a garden_list like on save_plants
+   @results = Selection.search_where(params["table"], params["search_for"], params["user_search"]) 
+  # @garden_list = Garden.join_search(params["garden_id"]) 
   erb :select_garden, :layout=> :boilerplate
 end
 
@@ -66,11 +68,11 @@ get "/show_save_garden" do
 end
 
 get "/show_save_plants" do
+  @plant = Plant.find("plants", params["plant_id"]) 
+  @garden = Garden.find("gardens", params["garden_id"]) 
   @new_selection = Selection.new(params)
   @new_selection.insert("selections")
-  @selection = Selection.all(params["table"])
-  
-  
+  @garden_list = Garden.join_search(params["garden_id"])
   erb :save_plants, :layout=> :boilerplate
 end
 
