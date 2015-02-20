@@ -1,36 +1,26 @@
-
-  <h2>Use this handy selector guide to plan your next garden:</h2>   
-  
-  <br>
-  <br>
-  <br>
-  <h2>Browse our list of plants by category.</h2>
-  <form action = "/cat_select">
+<h2>Use this handy guide to plan your next garden.</h2>   
+<br>
+<br>
+<h2>Browse our list of plants by category.</h2>
+  <form action = "/show_category_info">
     <input type = "submit" value = "Click here">
   </form>
-     <br>
-     <br>
-     
-     <!--    <a href ="/add_prod">To add a new product</a> -->    
-     
-  <h2>View all plants.</h2>
-
-   <form action = "/plant_search">
+     <br>     
+<h2>View all plants.</h2>
+  <form action = "/show_search_plants">
       <input type = "hidden" name = "table" value = "plants">
       <input type="submit" value="Click here">     
   </form>
   <br>
   <br>
   <h2>Create a garden.</h2>
-
-   <form action = "/create_garden">
-      
+   <form action = "/show_new_garden">   
       <input type="submit" value="Click here">     
   </form>
   <br>
-  <br>
+  <br>  
   <h2>View your garden.</h2>
-  <form action = "/view_garden">
+  <form action = "/show_show_garden"> 
     <input type="hidden" name="table" value="gardens">
     <input type = "submit" value="Click here">
   </form>
@@ -39,6 +29,5 @@
   <h2>Browse plants by sun level, color, most popular, and more!</h2>
   <form action = "/">
     <input type = "submit" value="Coming Soon!">
-    
   </form>
-    
+  <!--    <a href ="/add_prod">To add a new product</a> -->   

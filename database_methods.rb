@@ -148,32 +148,7 @@ module ClassMethods
   #
   # State changes:
   # Values are deleted from the database.
-  
-  # def delete_record(table, id_to_remove)
-#     DATABASE.execute("DELETE FROM #{products} WHERE id = #{id_to_remove}")
-#   end
-
-def insert(table) 
-  attributes = []
-  values = []
-  instance_variables.each do |i|
-  
-    attributes << i.to_s.delete("@") if i != :@id
-  end
-
-  attributes.each do |a|
-    value = self.send(a)
-
-    if value.is_a?(Integer)
-      values << "#{value}"
-    else values << "'#{value}'"
-    end
-  end
-  DATABASE.execute("INSERT INTO #{table} (#{attributes.join(", ")})
-                                      VALUES (#{values.join(", ")})")
-  @id = DATABASE.last_insert_row_id  
-end
-  
+    
   def delete_record(table, id)
     DATABASE.execute("DELETE FROM #{table} WHERE id = #{id}")
   end
@@ -205,6 +180,17 @@ end
       search_results << self.new(r) if r != nil
     end
     search_results
+  end
+  
+  def join_search
+  search results = [] 
+  results = DATABASE.execute("SELECT gardens.name, plants.name FROM selections 
+    LEFT JOIN gardens ON selections.garden_id = gardens.id 
+    LEFT JOIN plants ON selections.plant_id = plants.id;")
+  results.each do |r|
+    search_results << self.new(r) if r != nil
+  end
+  search_results  
   end
   
   # Public: .find

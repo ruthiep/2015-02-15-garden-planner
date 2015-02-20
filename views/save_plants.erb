@@ -1,0 +1,14 @@
+<h2>Congrats! You have added "<%= params["plant_id"] %>" to your garden! </h2>
+
+Your garden "<%= params["garden_id"] %>"  now contains:
+
+list plants in garden
+
+to add more plants click here:  
+
+<form action="/show_select_plants">
+  <input type = "hidden" name = "table" value= "plants">
+  <input type = "hidden" name="garden_id" value ="<%= params["garden_id"] %>">
+  <input type = "submit" value = "Go">
+</form>
+

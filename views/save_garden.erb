@@ -1,4 +1,20 @@
-<h2>Your garden "<%= @gard.name %>" has been saved!</h2>
+<h2>Your garden "<u><%= @new_garden.name %></u>" has been saved!</h2>
   <br>
-  <p>Click <form action ="/plant_search"><input type="hidden" name="table" value="plants"><input type = "submit" value = "HERE"></form> to start viewing plants to add to your garden, or <br>
-   Or, click here to select a garden to view its plants.</p>
+  
+    <table>mat
+       <% @results.each do |r| %>
+     <tr>
+      <td> <%= r.garden_id %> </td> 
+      <td><%= r.plant_id %> </td>
+    </tr>
+    <%end %>
+  </table>
+
+  <p>Go here to start viewing plants to add to your garden</p><br>
+
+   <form action ="/show_select_plants">
+     <input type="hidden" name="table" value="plants">
+     <input type "hidden" name="garden_id" value="<%= @new_garden.id %>">
+     <input type = "submit" value = "Click here">
+   </form>
+   

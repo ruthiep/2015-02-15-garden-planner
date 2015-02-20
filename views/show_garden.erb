@@ -4,17 +4,18 @@
     <th>ID Number</th>
     <th>Garden Name</th>
   </tr>
-  <% @garden.each do |g| %>
-<tr>
- <td> <%= g.id %> </td> 
- <td><%= g.name %> </td>
-</tr> <br>
-<% end %>
-
+    <% @garden.each do |g| %>
+  <tr>
+    <td> <%= g.id %> </td> 
+    <td><%= g.name %> </td>
+  </tr>
+  <% end %>
 </table>
-
 <h2>Please select the garden Id you wish to view</h2>
-<form action="select">
-  <input type ="text" name="id" value="Example: 1">
+<form action="show_select_garden">
   <input type="submit" value="Click here">
-</form>
+  <input type="hidden" name="table" value="selections">
+  <input type="hidden" name="search_for" value="garden_id">
+  <input type="text" name="user_search" placeholder="Example: 2"> 
+ </form>
+

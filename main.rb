@@ -21,36 +21,61 @@ get "/" do
   erb :welcome, :layout=> :boilerplate
 end
 
-get "/plant_search"  do
+get "/show_search_plants"  do
   @plant = Plant.all(params["table"])
   erb :search_plants, :layout=> :boilerplate
 end
 
-get "/cat_select" do  
+get "/show_category_info" do  
   erb :category_info, :layout=> :boilerplate
 end
 
-get "/view_by_category" do
+get "/show_plants_by_category" do
   @plant = Plant.search_where(params["table"], params["search_for"], params["user_search"])
   erb :plants_by_category, :layout=> :boilerplate
 end
 
-get "/view_garden" do
+get "/show_show_garden" do
   @garden = Garden.all(params["table"])
   erb :show_garden, :layout=> :boilerplate
 end
 
-get "/select" do
-
-  
+get "/show_select_garden" do
+  @results = Selection.search_where(params["table"], params["search_for"], params["user_search"])  
   erb :select_garden, :layout=> :boilerplate
 end
 
-get "/create_garden" do
+get "/show_new_garden" do
   erb :new_garden, :layout=> :boilerplate
 end
 
-get "/save_to_garden" do
-  @gard = DATABASE.execute("INSERT INTO gardens (name) VALUES (params["name"])");
+get "/show_confirm_new_garden" do
+  @new_garden = Garden.new(params)
+  @new_garden.insert("gardens")
+  @gard = Garden.all(params["table"]) 
+  erb :confirm_new_garden, :layout=> :boilerplate
+end
+
+get "/show_save_garden" do
+  @results = Selection.search_where(params["table"], params["search_for"], params["user_search"])
+  @plant = Plant.all(params["table"])
+  @new_garden = Garden.new(params)
+  @new_garden.insert("gardens")
+  @gard = Garden.all(params["table"])
   erb :save_garden, :layout=> :boilerplate
+end
+
+get "/show_save_plants" do
+  @new_selection = Selection.new(params)
+  @new_selection.insert("selections")
+  @selection = Selection.all(params["table"])
+  
+  
+  erb :save_plants, :layout=> :boilerplate
+end
+
+get "/show_select_plants" do
+  @plant=Plant.all(params["table"])
+  @garden_id = params["garden_id"]
+  erb :select_plants, :layout=> :boilerplate
 end
