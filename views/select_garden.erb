@@ -1,7 +1,7 @@
 <h2> Here is your garden!</h2>
 
   <ul>
-  <% @results.each do |g| %>
+  <% @garden_list.each do |g| %>
   <li><%= g["plant_name"] %></li>
   <% end %>
   </ul>
@@ -9,7 +9,7 @@
   <h3>To add more flowers click here</h3>
   <form action="/show_select_plants">
   <input type = "hidden" name = "table" value = "plants">
-  <input type = "hidden" name ="garden_id" value= "<%= params["user_search"]%>">
+  <input type = "hidden" name = "garden_id" value= "<%= @garden_id%>">
   <input type="submit" value="Click here">  
   </form>
   <br>

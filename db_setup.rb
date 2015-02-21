@@ -33,20 +33,35 @@ if DATABASE.execute("SELECT * FROM categories") == []
 end
 
 if DATABASE.execute("SELECT * FROM plants") == []
-    DATABASE.execute("INSERT INTO plants (name, sun, more_info, picture, category_id)
+    DATABASE.execute("INSERT INTO plants (name, sun, picture, category_id)
     VALUES 
-    ('Foxglove', 'Part Shade', 'link', 'picture', 4),
-    ('Creeping Phlox', 'Full Sun', 'link', 'picture', 1),
-    ('Thyme', 'Full Sun', 'link', 'picture', 1),
-    ('Angelina Sedum', 'Full Sun', 'link', 'picture', 1),
-    ('Cornflower', 'Full Sun', 'link', 'picture', 4)
-    ('Arctic Fire', 'Full Sun-Part Shade', 'link', 'picture', 2),
-    ('Ruby Glow Sedum', 'Full Sun-Part Shade', 'link', 'picture', 2),
-    ('Mexican Blue Sage', 'Full Sun', 'link', 'picture', 2),
-    ('Coneflower', 'Full Sun', 'link', 'picture', 3),
-    ('Cupplant', 'Full Sun', 'linl', 'picture', 3),
-    ('Meadow Sage salvia', 'Full Sun', 'link', 'picture', 3)")
- end
+    ('Foxglove', 'Part Shade', '/images/foxglove.jpg', 4),
+    ('Creeping Phlox', 'Full Sun', '/images/creeping_phlox.jpg', 1),
+    ('Thyme', 'Full Sun', '/images/Thyme.jpg', 1),
+    ('Angelina Sedum', 'Full Sun', '/images/angelina_sedum.jpg', 1),
+    ('Cornflower', 'Full Sun', '/images/cornflower.jpg', 4),
+    ('Arctic Fire', 'Full Sun-Part Shade', '/images/dianthus_arctic_fire.jpg', 2),
+    ('Ruby Glow Sedum', 'Full Sun-Part Shade', '/images/rubyglow_sedum.jpg', 2),
+    ('Mexican Blue Sage', 'Full Sun', '/images/mexican_bluesage.jpg', 2),
+    ('Coneflower', 'Full Sun', '/images/coneflower.jpg', 3),
+    ('Cupplant', 'Full Sun', '/images/CupPlant.jpg', 3),
+    ('Meadow Sage salvia', 'Full Sun', '/images/meadow_sage_salvia.jpg', 3),
+    ('Sweet Woodruff', 'Full Sun', '/images/sweet_woodruff.jpg', 1),
+    ('Brass Buttons', 'Full Sun', '/images/brass_buttons.jpg', 1),
+    ('Hibiscus', 'Full Sun-Part Shade', '/images/hibiscus.jpg', 4),
+    ('Bishops Weed', 'Shade', '/images/bishops_weed.jpg', 1),
+    ('Lavender', 'Full Sun', '/images/lavender.jpg', 2),
+    ('Coralbells', 'Sun-Part Shade', '/images/coralbells.jpg', 2),
+    ('Sage', 'Full Sun', '/images/purple_sage.jpg', 2),
+    ('Zinnia', 'Full Sun', '/images/zinnia.jpg', 3),
+    ('Bleeding Hearts', 'Part Shade', '/images/bleedingheart.jpg', 3),
+    ('Daylily', 'Full Sun', '/images/daylily.jpg', 3),
+    ('Hydrangea', 'Part Shade', '/images/Hydrangea.jpg', 4),
+    ('Oleander', 'Full Sun', '/images/oleander.jpg', 4),
+    ('Rhododendron', 'Full Sun', '/images/Rhododendron.jpg', 4)")  
+  end
+    
+ 
 
     # "en.wikipedia.org/wiki/Digitalis",
  #    "http://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Digitalis_purpurea2.jpg/220px-Digitalis_purpurea2.jpg",

@@ -8,7 +8,6 @@
     <th>ID Number</th>
     <th>Plant</th>
     <th>Preferred Sun</th>
-    <th>More info</th>
     <th>See it here</th>
     <th>Category</th>
   </tr>
@@ -17,7 +16,6 @@
  <td> <%= p.id %> </td> 
  <td><%= p.name %> </td>
  <td> <%=p.sun %> </td>
- <td><%= p.more_info %> </td>
  <td> <%=p.picture%> </td>
  <td> <%= p.category_id %> </td> 
 </tr> <br>
@@ -27,10 +25,12 @@
 
 <p>See one you like? Add it to your garden!<br>
   I need to create a new garden. 
-  <a href="/show_new_garden">Go here</a>
+  <form action = "/show_new_garden">
+    <input type = "submit" value = "Go here">
+    </form>
   <br>
   <br>
-  I have a garden where I'd like to add plants.
+  I have a garden where I'd like to add plants.<br><br>
   <form action = "/show_show_garden">
     <input type="hidden" name="table" value="gardens">
     <input type = "submit" value="Click here">

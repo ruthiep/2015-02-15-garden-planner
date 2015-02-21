@@ -4,7 +4,6 @@
     <th>ID Number</th>
     <th>Plant</th>
     <th>Preferred Sun</th>
-    <th>More info</th>
     <th>See it here</th>
     <th>Category</th>
   </tr>
@@ -13,8 +12,7 @@
  <td> <%= p.id %> </td> 
  <td><%= p.name %> </td>
  <td> <%=p.sun %> </td>
- <td><%= p.more_info %> </td>
- <td> <%=p.picture%> </td>
+ <td> <a href = "<%=p.picture%>" target="_blank"><%= p.name %></a> </td>
  <td> <%= p.category_id %> </td> 
 </tr>
 <% end %>
