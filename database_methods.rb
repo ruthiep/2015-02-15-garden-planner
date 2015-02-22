@@ -11,7 +11,8 @@
 # #save
 # #list_attributes_no_id
 # #display_attributes
-# #
+# #join_search
+#
 # 
 
 module DatabaseMethods
@@ -181,6 +182,19 @@ module ClassMethods
     end
     search_results
   end
+  
+  # Public: .join_search
+  # Does a join on the selections table to get the garden name and plant names, based on id.
+  #
+  # Parameters:
+  # garden_id              - Integer:  the ID of the garden to be matched.
+  #
+  #
+  # Returns:
+  # returns the matching plant records for the specified ID.
+  #
+  # State changes:
+  # none.
   
   def join_search(garden_id)
    results = DATABASE.execute("SELECT gardens.name AS garden_name, plants.name AS plant_name FROM selections 
