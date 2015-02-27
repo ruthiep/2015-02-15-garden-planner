@@ -18,7 +18,7 @@
    <% end %>
    </table>
    <h2>To add a plant to your garden, click here</h2>
-   <form action="/show_save_plants/<%= @garden_id%>">  
+   <form action="/show_save_plants/<%= @garden_id%>" method="post">  
      <input type ="hidden" name="table" value="selections">
   <!-- <input type="hidden" name="garden_id" value="<%= @garden_id%>"> -->
      <input type ="text" name="plant_id" placeholder="Enter flower id">

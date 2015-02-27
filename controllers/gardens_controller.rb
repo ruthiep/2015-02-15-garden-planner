@@ -13,7 +13,7 @@ get "/show_new_garden" do
   erb :"gardens/new_garden", :layout=> :boilerplate
 end
 
-get "/show_confirm_new_garden" do
+post "/show_confirm_new_garden" do
   @new_garden = Garden.new(params)
   @new_garden.insert("gardens")
   @gard = Garden.all(params["table"]) 

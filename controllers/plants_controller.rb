@@ -1,4 +1,4 @@
-get "/show_save_plants/:garden_id" do
+post "/show_save_plants/:garden_id" do
   @plant = Plant.find("plants", params["plant_id"]) 
   @garden = Garden.find("gardens", params[:garden_id]) 
   @new_selection = Selection.new(params)
