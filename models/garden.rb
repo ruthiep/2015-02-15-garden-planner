@@ -18,13 +18,17 @@ class Garden
   extend ClassMethods
   
   attr_reader :id
-  attr_accessor  :name
+  attr_accessor  :name, :likes
 
    
   def initialize(options)
     @id = options["id"]
     @name = options["name"]
-
+    if options["likes"] == nil
+      @likes = 1
+    else 
+      @likes = options["likes"]
+    end
   end
   
   def self.join_search(garden_id)
@@ -32,4 +36,12 @@ class Garden
     LEFT JOIN gardens ON selections.garden_id = gardens.id 
     LEFT JOIN plants ON selections.plant_id = plants.id WHERE selections.garden_id = #{garden_id}")
   end   
+  
+  def new_likes(garden_id)  
+    @liked = Garden.find("gardens", '#{garden_id}') 
+    @liked.likes +=1
+    @liked.save("gardens")
+  end
+  
+ 
 end#classend

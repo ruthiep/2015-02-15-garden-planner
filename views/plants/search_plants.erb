@@ -1,0 +1,30 @@
+<h2>Here are all the plants in our database.</h2>
+<table>
+  <tr>
+    <th>ID Number</th>
+    <th>Plant</th>
+    <th>Preferred Sun</th>
+    <th>See it here</th>
+    <th>Category</th>
+  </tr>
+  <% @plant.each do |p| %>
+<tr>
+ <td> <%= p.id %> </td> 
+ <td><%= p.name %> </td>
+ <td> <%=p.sun %> </td>
+ <td> <a href = "<%=p.picture%>" target="_blank"><%= p.name %></a> </td>
+ <td> <%= p.category_id %> </td> 
+</tr>
+<% end %>
+</table>
+<h2>To add a plant to your garden, click here to select your garden.</h2>
+<form action="/show_show_garden">
+  <input type ="hidden" name="table" value="gardens">
+  <input type="submit" value="Click here">
+</form>
+<br>
+<h2>Want to create a new garden?  Go here.</h2>
+<form action="/show_new_garden">
+  <input type="submit" value="Click here">
+</form>
+  <!-- <input type ="hidden" name="garden_id" value="<%= params["garden_id"] %>"> -->

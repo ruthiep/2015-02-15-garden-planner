@@ -1,0 +1,30 @@
+<h2>Here are all the gardens in our database.</h2>
+<table>
+  <tr>
+    <th>ID Number</th>
+    <th>Garden Name</th>
+    <th>Likes</th>
+  </tr>
+    <% @garden.each do |g| %>
+  <tr>
+    <td> <%= g.id %> </td> 
+    <td><%= g.name %> </td>
+    <td><%= g.likes %></td>
+  </tr>
+  <% end %>
+</table>
+<img src = "/images/beautiful_flower_garden.jpg" alt="beautiful flower garden" height = "300" width = "500">
+<h2>Please select the garden Id you wish to view</h2>
+<form action="/show_select_garden">
+  <input type="submit" value="Click here">
+  <!-- <input type="hidden" name="table" value="selections"> -->
+  <!-- <input type="hidden" name="garden_id" value="garden_id"> -->
+  <input type="text" name="garden_id" placeholder="Example: 2"> 
+ </form>
+ 
+ 
+<h2>Show your love for a garden here!</h2>
+<form action="/show_like_garden">
+  <input type="submit" value="Click here">
+  <input type="text" name="garden_id" placeholder="Example: 2"> 
+ </form>

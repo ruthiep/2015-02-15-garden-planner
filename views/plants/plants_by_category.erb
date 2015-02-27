@@ -1,0 +1,37 @@
+<h2>You chose category <%= params["user_search"]%></h2>  
+
+
+<p> Here are all the plants in that category.</p>
+
+<table>
+  <tr>
+    <th>ID Number</th>
+    <th>Plant</th>
+    <th>Preferred Sun</th>
+    <th>See it here</th>
+    <th>Category</th>
+  </tr>
+  <% @plant.each do |p| %>
+<tr>
+ <td> <%= p.id %> </td> 
+ <td><%= p.name %> </td>
+ <td> <%=p.sun %> </td>
+ <td> <a href = "<%=p.picture%>" target="_blank"><%= p.name %></a> </td>
+ <td> <%= p.category_id %> </td> 
+</tr> <br>
+<% end %>
+
+</table>
+
+<p>See one you like? Add it to your garden!<br>
+  I need to create a new garden. 
+  <form action = "/show_new_garden">
+    <input type = "submit" value = "Go here">
+    </form>
+  <br>
+  <br>
+  I have a garden where I'd like to add plants.<br><br>
+  <form action = "/show_show_garden">
+    <input type="hidden" name="table" value="gardens">
+    <input type = "submit" value="Click here">
+  </form>

@@ -1,0 +1,21 @@
+<h2> Here is your garden!</h2>
+
+  <ul>
+  <% @garden_list.each do |g| %>
+  <li><%= g["plant_name"] %></li>
+  <% end %>
+  </ul>
+
+  <h3>To add more flowers click here</h3>
+  <form action="/show_select_plants/<%= @garden_id%>">
+  <input type = "hidden" name = "table" value = "plants"> 
+  <!-- <input type = "hidden" name = "garden_id" value= "<%= @garden_id%>"> -->
+  <input type="submit" value="Click here">  
+  </form>
+  <br>
+  <br>
+  <h2>To make changes to your garden click here.</h2>
+  <form action= "/">
+    <input type=submit value="Coming Soon!" >
+    
+    
