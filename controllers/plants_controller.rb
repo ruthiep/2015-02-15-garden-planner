@@ -1,9 +1,9 @@
-get "/show_save_plants" do
+get "/show_save_plants/:garden_id" do
   @plant = Plant.find("plants", params["plant_id"]) 
-  @garden = Garden.find("gardens", params["garden_id"]) 
+  @garden = Garden.find("gardens", params[:garden_id]) 
   @new_selection = Selection.new(params)
   @new_selection.insert("selections")
-  @garden_list = Garden.join_search(params["garden_id"])
+  @garden_list = Garden.join_search(params[:garden_id])
   erb :"plants/save_plants", :layout=> :boilerplate
 end
 
