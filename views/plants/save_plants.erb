@@ -5,6 +5,7 @@ Your garden "<%= @garden.name %>"  now contains:
 <ul>
 <% @garden_list.each do |g| %>
 <li><%= g["plant_name"] %></li>
+<li><%= g["quantity"] %></li>
 <% end %>
 </ul>
 

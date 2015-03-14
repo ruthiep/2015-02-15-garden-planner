@@ -2,9 +2,9 @@
 
   <ul>
   <% @garden_list.each do |g| %>
-  <li><%= g["plant_name"] %></li>
+    <li><%= g["plant_name"] %>   <%= g["quantity"] %></li>
   <% end %>
-  </ul>
+</ul>
 
   <h3>To add more flowers click here</h3>
   <form action="/show_select_plants/<%= @garden_id%>">

@@ -19,8 +19,8 @@ header {
   
 }
 
-div {
-  background-image: url("/images/flower_border.jpg");
+.banner{
+  background-image: url("/images/banner-image-11.jpg");
 }
 
 table {

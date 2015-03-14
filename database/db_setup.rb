@@ -12,9 +12,10 @@ DATABASE.execute("CREATE TABLE IF NOT EXISTS comments (id INTEGER PRIMARY KEY,
 DATABASE.execute("CREATE TABLE IF NOT EXISTS gardens (id INTEGER PRIMARY KEY,
                  name TEXT NOT NULL, likes INTEGER DEFAULT 1)")
 
-DATABASE.execute("CREATE TABLE IF NOT EXISTS selections (plant_id INTEGER NOT NULL, 
-                  garden_id INTEGER NOT NULL,
-                  PRIMARY KEY (plant_id, garden_id),
+DATABASE.execute("CREATE TABLE IF NOT EXISTS selections (id INTEGER PRIMARY KEY,
+                  quantity INTEGER, 
+                  plant_id INTEGER,
+                  garden_id INTEGER,
                   FOREIGN KEY (plant_id) REFERENCES plants(id),
                   FOREIGN KEY (garden_id) REFERENCES gardens(id))")
 
@@ -60,9 +61,3 @@ if DATABASE.execute("SELECT * FROM plants") == []
     ('Oleander', 'Full Sun', '/images/oleander.jpg', 4),
     ('Rhododendron', 'Full Sun', '/images/Rhododendron.jpg', 4)")  
   end
-    
- 
-
-    # "en.wikipedia.org/wiki/Digitalis",
- #    "http://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Digitalis_purpurea2.jpg/220px-Digitalis_purpurea2.jpg",
- #    4)")

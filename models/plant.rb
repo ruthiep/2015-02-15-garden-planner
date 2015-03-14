@@ -25,13 +25,12 @@
 class Plant
   include DatabaseMethods
   extend ClassMethods
-  attr_reader :id, :name, :sun, :more_info, :picture, :category_id
+  attr_reader :id, :name, :sun, :picture, :category_id
    
   def initialize(options)
     @id = options["id"]
     @name = options["name"]
     @sun = options["sun"]
-    @more_info = options["more_info"]
     @picture = options["picture"]
     @category_id = options["category_id"]
   end
