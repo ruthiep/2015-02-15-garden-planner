@@ -16,19 +16,22 @@
 # #
 # 
 
-class Selection
-  include DatabaseMethods
-  extend ClassMethods
-  attr_reader :id
-  attr_accessor :plant_id, :garden_id, :quantity
+class Selection < ActiveRecord::Base
+  belongs_to :garden
+  belongs_to :plant
+  
+end
+  # include DatabaseMethods
+ #  extend ClassMethods
+ #  attr_reader :id
+ #  attr_accessor :plant_id, :garden_id, :quantity
    
    
    # are fk attr_accessors or attr_readers?
-  def initialize(options)
-    @id = options["id"]
-    @plant_id = options["plant_id"]
-    @garden_id = options["garden_id"]
-    @quantity = options["quantity"]
-  end
+  # def initialize(options)
+#     @id = options["id"]
+#     @plant_id = options["plant_id"]
+#     @garden_id = options["garden_id"]
+#     @quantity = options["quantity"]
+#   end
   
-end#classend

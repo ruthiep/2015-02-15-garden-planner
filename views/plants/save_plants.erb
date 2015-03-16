@@ -4,15 +4,15 @@ Your garden "<%= @garden.name %>"  now contains:
 
 <ul>
 <% @garden_list.each do |g| %>
-<li><%= g["plant_name"] %></li>
-<li><%= g["quantity"] %></li>
+<li><%= g["plant_name"] %>  <%= g["quantity"] %></li>
+
 <% end %>
 </ul>
 
 to add more plants click here:  
 
 <form action="/show_select_plants/<%= @garden.id%>">
-  <input type = "hidden" name = "table" value= "plants">
+  <!-- <input type = "hidden" name = "table" value= "plants"> -->
   <!-- <input type = "hidden" name="garden_id" value ="<%= params["garden_id"] %>"> -->
   <input type = "submit" value = "Go">
 </form>

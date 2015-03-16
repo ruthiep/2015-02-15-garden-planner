@@ -1,5 +1,6 @@
 get "/show_show_garden" do
-  @garden = Garden.all(params["table"])
+  @garden = Garden.all
+  # @garden = Garden.all(params["table"])
   erb :"gardens/show_garden", :layout=> :boilerplate
 end
 
@@ -15,25 +16,32 @@ end
 
 post "/show_confirm_new_garden" do
   @new_garden = Garden.new(params)
-  @new_garden.insert("gardens")
-  @gard = Garden.all(params["table"]) 
+  @new_garden.save
+  # @new_garden.insert("gardens")
+  @gard = Garden.all
+  # @gard = Garden.all(params["table"])
   erb :"gardens/confirm_new_garden", :layout=> :boilerplate
 end
 
 get "/show_save_garden" do
-  @results = Selection.search_where(params["table"], params["search_for"], params["user_search"])
-  @plant = Plant.all(params["table"])
+  @results = Selection.where_id_is(params["user_search"])
+  # @results = Selection.search_where(params["table"], params["search_for"], params["user_search"])
+  @plant = Plant.all
+  # @plant = Plant.all(params["table"])
   @new_garden = Garden.new(params)
-  @new_garden.insert("gardens")
-  @gard = Garden.all(params["table"])
+  @new_garden.save
+  # @new_garden.insert("gardens")
+  @gard = Garden.all
+  # @gard = Garden.all(params["table"])
   erb :"gardens/save_garden", :layout=> :boilerplate
 end
 
 get "/show_like_garden" do
-  @liked = Garden.find("gardens", params["garden_id"])
-  binding.pry
+  @liked = Garden.find(params["garden_id"])
+  # @liked = Garden.find("gardens", params["garden_id"])
   @liked.likes +=1
-  @liked.save("gardens")
+  @liked.save
+  # @liked.save("gardens")
   erb :"gardens/like_garden", :layout=> :boilerplate
 end
 

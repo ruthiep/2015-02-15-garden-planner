@@ -11,21 +11,19 @@
 # Public Methods:
 # #
 # #
-# #
-# #
-# #
 # 
 
-class Category
-  include DatabaseMethods
-  extend ClassMethods
-  attr_reader :id
-  attr_accessor  :name
-   
-  def initialize(options)
-    @id = options["id"]
-    @name = options["name"]
-    
-  end
+class Category < ActiveRecord::Base
+  has_many :plants
      
-end#classend
+end
+
+  # include DatabaseMethods  ###do we still use this???
+ #  extend ClassMethods
+  # attr_reader :id
+  # attr_accessor  :name
+   
+  # def initialize(options)
+#     @id = options["id"]
+#     @name = options["name"]
+#   end

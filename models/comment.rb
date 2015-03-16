@@ -9,24 +9,18 @@
 #
 #
 # Public Methods:
-# #edit_record
-# #save
-# #
-# #
-# #
 # #
 # #
 # 
 
-class Comment
-  include DatabaseMethods
-  extend ClassMethods
-  attr_reader :id, :name,
+class Comment < ActiveRecord::Base
+  # include DatabaseMethods
+ #  extend ClassMethods
+ #  attr_reader :id, :name
    
-  def initialize(options)
-    @id = options["id"]
-    @comment = options["comment"]
- 
-  end
+  # def initialize(options)
+#     @id = options["id"]
+#     @comment = options["comment"]
+#   end
      
 end#classend
