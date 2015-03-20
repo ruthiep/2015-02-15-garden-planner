@@ -37,14 +37,28 @@ unless ActiveRecord::Base.connection.table_exists?(:gardens)
    ActiveRecord::Base.connection.create_table :gardens do |t|
      t.text :name
      t.integer :likes, :default => 1
+     t.belongs_to :user
+     
+     validates :name, presence: true, uniqueness: true
+
    end
 end
 
 unless ActiveRecord::Base.connection.table_exists?(:selections)
    ActiveRecord::Base.connection.create_table :selections do |t|
      t.integer :quantity
-     t.belongs_to :plant, index: true
-     t.belongs_to :garden, index: true
+     t.belongs_to :plant
+     t.belongs_to :garden
+   end
+end
+
+unless ActiveRecord::Base.connection.table_exists?(:users)
+   ActiveRecord::Base.connection.create_table :users do |t|
+     t.text :name
+     # t.text :email
+     t.text :password
+    
+     # validate :name, presense: true, length: {minimum: 5}
    end
 end
 

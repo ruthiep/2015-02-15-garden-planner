@@ -1,25 +1,25 @@
-get "/login" do
-  erb  :"logins/new"
+get "/show_login" do
+  erb  :"logins/login"
 end
 
-get "/try_login"  do  
-  user = User.find_by_email(params[:email])
-  
+post "/try_login"  do  
+  user = User.find_by_name(params[:name])
+
   if user
-    
+    binding.pry    
     if BCrypt::Password.new(user.password) == params[:password]
-      session[:user_id] = user_id
+      session[:user_id] = user.id
       
-      # redirect "/products"  need to choose valid paths
+      redirect "/show_search_plants"
     else 
-      # redirect "/login"
+       redirect "/"
     end
   else 
-    # redirect "/login"
+     redirect "/"
   end
 end
 
 get "/logout" do
   session[:user_id] = nil
-  redirect "/welcome"   #or another path??
+  redirect "/"  
 end

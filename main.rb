@@ -17,6 +17,7 @@ require 'twilio-ruby'
 require_relative 'database/db_setup'
 
 require_relative 'models/category'
+require_relative 'models/user'
 require_relative 'models/plant'
 require_relative 'models/garden'
 require_relative 'models/selection'
@@ -27,6 +28,7 @@ require_relative 'controllers/index_controller'
 require_relative 'controllers/plants_controller'
 require_relative 'controllers/gardens_controller'
 require_relative 'controllers/logins_controller'
+require_relative 'controllers/users_controller'
 
 
 # include Helper

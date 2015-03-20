@@ -16,6 +16,7 @@
 class Garden < ActiveRecord::Base
   has_many :selections
   has_many :plants, through: :selections
+  belongs_to :user
   
   def self.join_search(garden_id)
    results = ActiveRecord::Base.connection.execute("SELECT quantity, gardens.name AS garden_name, plants.name AS plant_name FROM selections 
