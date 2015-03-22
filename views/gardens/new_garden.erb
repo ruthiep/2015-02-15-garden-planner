@@ -9,8 +9,10 @@
   <input type = "submit" value = "Go!">
 </form> -->
 
+
 <form action="/show_confirm_new_garden" method ="post">
-  <input type = "text" name = "name" placeholder = "Enter the name of your garden here">
+  <input type = "text" name= "name" placeholder = "Enter the name of your garden here">
+  <input type = "hidden" name="user_id" value="session[:user_id]" >
   <!-- <input type = "hidden" name = "table" value = "gardens"> -->
   <input type = "submit" value = "Go!">
 

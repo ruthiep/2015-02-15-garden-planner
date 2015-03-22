@@ -3,10 +3,11 @@ get "/show_new" do
   
 end
 
+
 post "/show_confirm_new_user" do
  
+  session[:user_id] = nil
   password_digest = BCrypt::Password.create(params[:password])
-
   params[:password] = password_digest
 
   @user = User.new
@@ -16,7 +17,9 @@ post "/show_confirm_new_user" do
   @user.save
   
   if @user.save
+    session[:user_id] = @user.id
     redirect "/show_new_garden"
+    
   else
     redirect "/"
   end

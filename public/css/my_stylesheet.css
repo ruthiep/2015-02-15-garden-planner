@@ -20,7 +20,8 @@ header {
 }
 
 .banner{
-  background-image: url("/images/banner-image-11.jpg");
+  background-image: url("/images/flower_border.jpg");
+/*  background-image: url("/images/banner-image-11.jpg");*/
 }
 
 table {

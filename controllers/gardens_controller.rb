@@ -15,7 +15,10 @@ get "/show_new_garden" do
 end
 
 post "/show_confirm_new_garden" do
+  
+  user_id = session[:user_id]
   @new_garden = Garden.new(params)
+  @new_garden.user_id = user_id
   @new_garden.save
   # @new_garden.insert("gardens")
   @gard = Garden.all

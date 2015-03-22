@@ -8,7 +8,7 @@ post "/show_save_plants/:garden_id" do
   @new_selection.plant_id = params["plant_id"]
   @new_selection.quantity = params["quantity"]
   @new_selection.save
-  binding.pry
+  
   # @new_selection.insert("selections")
   @garden_list = Garden.join_search(params[:garden_id])
   erb :"plants/save_plants", :layout=> :boilerplate

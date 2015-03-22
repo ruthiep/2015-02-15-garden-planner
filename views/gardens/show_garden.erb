@@ -4,12 +4,14 @@
     <th>ID Number</th>
     <th>Garden Name</th>
     <th>Likes</th>
+    <th>User ID</th>
   </tr>
     <% @garden.each do |g| %>
   <tr>
     <td> <%= g.id %> </td> 
     <td><%= g.name %> </td>
     <td><%= g.likes %></td>
+    <td><%= g.user_id %></td>
   </tr>
   <% end %>
 </table>

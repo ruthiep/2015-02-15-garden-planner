@@ -36,10 +36,10 @@ end
 unless ActiveRecord::Base.connection.table_exists?(:gardens)
    ActiveRecord::Base.connection.create_table :gardens do |t|
      t.text :name
-     t.integer :likes, :default => 1
      t.belongs_to :user
-     
-     validates :name, presence: true, uniqueness: true
+     t.integer :likes, :default => 1
+    
+     # validates :name, presence: true, uniqueness: true
 
    end
 end
