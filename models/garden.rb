@@ -18,6 +18,8 @@ class Garden < ActiveRecord::Base
   has_many :plants, through: :selections
   belongs_to :user
   
+  validates :name, presence: true, uniqueness: true
+  
   def self.join_search(garden_id)
    results = ActiveRecord::Base.connection.execute("SELECT quantity, gardens.name AS garden_name, plants.name AS plant_name FROM selections 
     LEFT JOIN gardens ON selections.garden_id = gardens.id 

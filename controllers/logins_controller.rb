@@ -8,8 +8,8 @@ post "/try_login"  do
   if user 
     binding.pry
     # if user.password == params[:password]
-    # if BCrypt::Password.new(user.password) == user.password
-      if user.password == BCrypt::Password.new(user.password)
+    if BCrypt::Password.new(user.password) == params[:password]
+      # if user.password == BCrypt::Password.new(user.password)
       session[:user_id] = user.id    
       redirect "/show_search_plants"
       

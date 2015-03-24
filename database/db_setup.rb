@@ -29,7 +29,7 @@ unless ActiveRecord::Base.connection.table_exists?(:plants)
      t.text :name
      t.text :sun
      t.text :picture
-     t.belongs_to :category, index: true  ###not sure if this is correct syntax
+     t.belongs_to :category, index: true  
    end
 end
 
@@ -39,7 +39,7 @@ unless ActiveRecord::Base.connection.table_exists?(:gardens)
      t.belongs_to :user
      t.integer :likes, :default => 1
     
-     # validates :name, presence: true, uniqueness: true
+    
 
    end
 end
@@ -55,10 +55,9 @@ end
 unless ActiveRecord::Base.connection.table_exists?(:users)
    ActiveRecord::Base.connection.create_table :users do |t|
      t.text :name
-     # t.text :email
+     t.text :email
      t.text :password
     
-     # validate :name, presense: true, length: {minimum: 5}
    end
 end
 
