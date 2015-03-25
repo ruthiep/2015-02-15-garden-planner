@@ -1,22 +1,3 @@
-configure :development do
-  require 'sqlite3'
-  set :database, {adapter: "sqlite3", database: "database/garden_selector.db"}
-# DATABASE = SQLite3::Database.new('garden_selector.db')
-end
-
-configure :production do
-  require 'pg'
-  db = URI.parse(ENV['DATABASE_URL'])
-  
-  ActiveRecord::Base.establish_connection(
-    :adapter  => db.scheme == 'postgres' ? 'pstgresql' : db.scheme,
-    :host     => db.host,
-    :username => db.user,
-    :password => db.password,
-    :database => db.path[1..-1],
-    :encoding => 'utf8'
-  )
-end
 
 unless ActiveRecord::Base.connection.table_exists?(:categories)
    ActiveRecord::Base.connection.create_table :categories do |t|

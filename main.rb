@@ -4,7 +4,7 @@ require 'bundler/setup'
 require 'pry'
 require 'sinatra'
 require 'sinatra/activerecord'
-require 'pg'
+require 'pg', :groups => [:production]
 
 enable :sessions
 
