@@ -4,6 +4,7 @@ require 'bundler/setup'
 require 'pry'
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'pg'
 
 enable :sessions
 
@@ -11,6 +12,26 @@ require 'bcrypt'
 require 'json'
 
 require 'twilio-ruby'
+
+configure :development do
+  require 'sqlite3'
+  set :database, {adapter: "sqlite3", database: "database/garden_selector.db"}
+# DATABASE = SQLite3::Database.new('garden_selector.db')
+end
+
+configure :production do
+  require 'pg'
+  db = URI.parse(ENV['DATABASE_URL'])
+  
+  ActiveRecord::Base.establish_connection(
+    :adapter  => db.scheme == 'postgres' ? 'pstgresql' : db.scheme,
+    :host     => db.host,
+    :username => db.user,
+    :password => db.password,
+    :database => db.path[1..-1],
+    :encoding => 'utf8'
+  )
+end
 
 
 # require_relative 'database/database_methods'
