@@ -11,6 +11,8 @@ require 'json'
 
 require 'twilio-ruby'
 
+require 'sinatra/activerecord'
+
 configure :development do
   require 'sqlite3'
   set :database, {adapter: "sqlite3", database: "database/garden_selector.db"}
@@ -30,8 +32,6 @@ configure :production do
     :encoding => 'utf8'
   )
 end
-
-require 'sinatra/activerecord'
 
 
 # require_relative 'database/database_methods'
