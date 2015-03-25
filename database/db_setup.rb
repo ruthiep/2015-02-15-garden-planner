@@ -43,43 +43,43 @@ unless ActiveRecord::Base.connection.table_exists?(:users)
 end
 
 
-#comment out this section afer creating db the first time
-  # Category.create([
- #    {name: "Ground Cover"},
- #    {name: "Front"},
- #    {name: "Middle"},
- #    {name: "Back"}
- #
- #    ])
+# comment out this section afer creating db the first time
+  Category.create([
+    {name: "Ground Cover"},
+    {name: "Front"},
+    {name: "Middle"},
+    {name: "Back"}
 
-#comment out this section afer creating db the first time
-# Plant.create([
-#   {name: 'Foxglove', sun: 'Part Shade', picture: '/images/foxglove.jpg', category_id: 4},
-#   {name: 'Creeping Phlox', sun: 'Full Sun', picture: '/images/creeping_phlox.jpg', category_id: 1},
-#   {name: 'Thyme', sun: 'Full Sun', picture: '/images/Thyme.jpg', category_id: 1},
-#   {name: 'Angelina Sedum', sun: 'Full Sun', picture: '/images/angelina_sedum.jpg', category_id: 1},
-#   {name: 'Cornflower', sun: 'Full Sun', picture: '/images/cornflower.jpg', category_id: 4},
-#   {name: 'Arctic Fire', sun: 'Full Sun-Part Shade', picture: '/images/dianthus_arctic_fire.jpg', category_id: 2},
-#   {name: 'Ruby Glow Sedum', sun: 'Full Sun-Part Shade', picture: '/images/rubyglow_sedum.jpg', category_id: 2},
-#   {name: 'Mexican Blue Sage', sun: 'Full Sun', picture: '/images/mexican_bluesage.jpg', category_id: 2},
-#   {name: 'Coneflower', sun: 'Full Sun', picture: '/images/coneflower.jpg', category_id: 3},
-#   {name: 'Cupplant', sun: 'Full Sun', picture: '/images/CupPlant.jpg', category_id: 3},
-#   {name: 'Meadow Sage salvia', sun: 'Full Sun', picture: '/images/meadow_sage_salvia.jpg', category_id: 3},
-#   {name: 'Sweet Woodruff', sun: 'Full Sun', picture: '/images/sweet_woodruff.jpg', category_id: 1},
-#   {name: 'Brass Buttons', sun: 'Full Sun', picture: '/images/brass_buttons.jpg', category_id: 1},
-#   {name: 'Hibiscus', sun: 'Full Sun-Part Shade', picture: '/images/hibiscus.jpg', category_id: 4},
-#   {name: 'Bishops Weed', sun: 'Shade', picture: '/images/bishops_weed.jpg', category_id: 1},
-#   {name: 'Lavender', sun: 'Full Sun', picture: '/images/lavender.jpg', category_id: 2},
-#   {name: 'Coralbells', sun: 'Sun-Part Shade', picture: '/images/coralbells.jpg', category_id: 2},
-#   {name: 'Sage', sun: 'Full Sun', picture: '/images/purple_sage.jpg', category_id: 2},
-#   {name: 'Zinnia', sun: 'Full Sun', picture: '/images/zinnia.jpg', category_id: 3},
-#   {name: 'Bleeding Hearts', sun: 'Part Shade', picture: '/images/bleedingheart.jpg', category_id: 3},
-#   {name: 'Daylily', sun: 'Full Sun', picture: '/images/daylily.jpg', category_id: 3},
-#   {name: 'Hydrangea', sun: 'Part Shade', picture: '/images/Hydrangea.jpg', category_id: 4},
-#   {name: 'Oleander', sun: 'Full Sun', picture: '/images/oleander.jpg', category_id: 4},
-#   {name: 'Rhododendron', sun: 'Full Sun', picture: '/images/Rhododendron.jpg', category_id: 4}
-#
-# ])
+    ])
+
+# comment out this section afer creating db the first time
+Plant.create([
+  {name: 'Foxglove', sun: 'Part Shade', picture: '/images/foxglove.jpg', category_id: 4},
+  {name: 'Creeping Phlox', sun: 'Full Sun', picture: '/images/creeping_phlox.jpg', category_id: 1},
+  {name: 'Thyme', sun: 'Full Sun', picture: '/images/Thyme.jpg', category_id: 1},
+  {name: 'Angelina Sedum', sun: 'Full Sun', picture: '/images/angelina_sedum.jpg', category_id: 1},
+  {name: 'Cornflower', sun: 'Full Sun', picture: '/images/cornflower.jpg', category_id: 4},
+  {name: 'Arctic Fire', sun: 'Full Sun-Part Shade', picture: '/images/dianthus_arctic_fire.jpg', category_id: 2},
+  {name: 'Ruby Glow Sedum', sun: 'Full Sun-Part Shade', picture: '/images/rubyglow_sedum.jpg', category_id: 2},
+  {name: 'Mexican Blue Sage', sun: 'Full Sun', picture: '/images/mexican_bluesage.jpg', category_id: 2},
+  {name: 'Coneflower', sun: 'Full Sun', picture: '/images/coneflower.jpg', category_id: 3},
+  {name: 'Cupplant', sun: 'Full Sun', picture: '/images/CupPlant.jpg', category_id: 3},
+  {name: 'Meadow Sage salvia', sun: 'Full Sun', picture: '/images/meadow_sage_salvia.jpg', category_id: 3},
+  {name: 'Sweet Woodruff', sun: 'Full Sun', picture: '/images/sweet_woodruff.jpg', category_id: 1},
+  {name: 'Brass Buttons', sun: 'Full Sun', picture: '/images/brass_buttons.jpg', category_id: 1},
+  {name: 'Hibiscus', sun: 'Full Sun-Part Shade', picture: '/images/hibiscus.jpg', category_id: 4},
+  {name: 'Bishops Weed', sun: 'Shade', picture: '/images/bishops_weed.jpg', category_id: 1},
+  {name: 'Lavender', sun: 'Full Sun', picture: '/images/lavender.jpg', category_id: 2},
+  {name: 'Coralbells', sun: 'Sun-Part Shade', picture: '/images/coralbells.jpg', category_id: 2},
+  {name: 'Sage', sun: 'Full Sun', picture: '/images/purple_sage.jpg', category_id: 2},
+  {name: 'Zinnia', sun: 'Full Sun', picture: '/images/zinnia.jpg', category_id: 3},
+  {name: 'Bleeding Hearts', sun: 'Part Shade', picture: '/images/bleedingheart.jpg', category_id: 3},
+  {name: 'Daylily', sun: 'Full Sun', picture: '/images/daylily.jpg', category_id: 3},
+  {name: 'Hydrangea', sun: 'Part Shade', picture: '/images/Hydrangea.jpg', category_id: 4},
+  {name: 'Oleander', sun: 'Full Sun', picture: '/images/oleander.jpg', category_id: 4},
+  {name: 'Rhododendron', sun: 'Full Sun', picture: '/images/Rhododendron.jpg', category_id: 4}
+
+])
 
 ###### this is the old, pre-active record db setup####
 
