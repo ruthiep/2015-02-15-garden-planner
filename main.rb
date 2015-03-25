@@ -33,10 +33,6 @@ configure :production do
   )
 end
 
-
-# require_relative 'database/database_methods'
-require_relative 'database/db_setup'
-
 require_relative 'models/category'
 require_relative 'models/user'
 require_relative 'models/plant'
@@ -44,6 +40,9 @@ require_relative 'models/garden'
 require_relative 'models/selection'
 require_relative 'models/comment'
 require_relative 'models/special_note'
+
+# require_relative 'database/database_methods'
+require_relative 'database/db_setup'
 
 require_relative 'controllers/index_controller'
 require_relative 'controllers/plants_controller'
