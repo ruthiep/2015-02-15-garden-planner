@@ -3,8 +3,6 @@ require 'bundler/setup'
 
 require 'pry'
 require 'sinatra'
-require 'sinatra/activerecord'
-require 'pg', :groups => [:production]
 
 enable :sessions
 
@@ -32,6 +30,8 @@ configure :production do
     :encoding => 'utf8'
   )
 end
+
+require 'sinatra/activerecord'
 
 
 # require_relative 'database/database_methods'
