@@ -14,13 +14,6 @@ post "/show_save_plants/:garden_id" do
   erb :"plants/save_plants", :layout=> :boilerplate
 end
 
-# get "/show_select_plants" do
-#   @plant=Plant.all(params["table"])
-#   @garden_id = params["garden_id"]
-#   erb :"plants/select_plants", :layout=> :boilerplate
-# end
-
-#correct version with Sumeet
 get "/show_select_plants/:garden_id" do
   @plant = Plant.all
   # @plant=Plant.all(params["table"])
@@ -28,9 +21,9 @@ get "/show_select_plants/:garden_id" do
   erb :"plants/select_plants", :layout=> :boilerplate
 end
 
-get "/show_search_plants"  do
+get "/show_search_plants" do
   @plant = Plant.all
-  # @plant = Plant.all(params["table"])
+  
   erb :"plants/search_plants", :layout=> :boilerplate
 end
 
